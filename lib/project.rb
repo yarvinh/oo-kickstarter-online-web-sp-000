@@ -5,12 +5,10 @@ class Project
     @backers = []
   end
   def add_backer(backer)
-    if @backers.include?(backer) == false
-        backer.back_project(backer)
-       else
-        @backers << project
-    end
-
+    @backed_projects << project
+       if project.backers.include?(self) == false
+          project.add_backer(self)
+       end
     end
 
 end
